@@ -10,7 +10,7 @@ import SpacesWayFindingApp
 
 class WayfindingHelper: NSObject {
     
-    let spacesWayFinding = SpacesWayFinding(apiKey:"0Ws3-Rh2usbM4-39OJYww7mQ92a4Nb2eVqO4GXOATT8",region: SpacesWayFindingRegion.IO)
+    let spacesWayFinding = SpacesWayFinding(apiKey:<api-key>,region: <region>)
 
     private var completion: ((MapWidgetViewController?, Error?) -> Void)?
     
