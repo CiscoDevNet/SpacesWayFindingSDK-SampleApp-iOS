@@ -10,8 +10,7 @@ class CustomMapExitHandler: ExitButtonEventsHandler {
     
     /// This function is triggered when the exit button is tapped.
     
-    override func exitButtonDidTap(_ exitbutton: MapWidgetExitButton) {
-       // super.exitButtonDidTap(exitbutton)
+    override func exitButtonDidTap() {
         print("CustomMapExitHandler: exitButtonDidTap")
     }
     

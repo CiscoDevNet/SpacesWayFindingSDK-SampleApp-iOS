@@ -10,25 +10,41 @@ import Foundation
 import PointrKit
 
 class CustomMapEventHandler: MapEventsHandler {
-    
     /// This function is triggered when the map starts loading.
+    weak var wayfindingHelper: WayfindingHelper?
     
+    init(mapWidget: MapWidgetViewController, wayfindingHelper: WayfindingHelper?) {
+        self.wayfindingHelper = wayfindingHelper
+        super.init(mapWidget: mapWidget)
+    }
     override func mapDidStartLoading(_ map: MapViewController) {
         print("CustomMapEventHandler: mapDidStartLoading")
+        
     }
     
     /// This function is triggered when the map finishes loading.
     
     override func mapDidEndLoading(_ map: MapViewController) {
         print("CustomMapEventHandler: mapDidEndLoading")
+        print("wayfindingHelper.spacesWayFinding.getPoIs()")
+        //print(self.wayfindingHelper?.spacesWayFinding.getPoIs())
+        
+       
         addMarkers()
-        addHeatMap()
+       // addHeatMap()
+          
      
      }
     
     override func mapDidReceiveTap(_ map: MapViewController, coordinate: CLLocationCoordinate2D) {
         print("CustomMapEventHandler: mapDidReceiveTap",coordinate)
     }
+    
+    
+    override func map(_ map: MapViewController, didReceiveTapOnFeature: Feature) {
+        print("CustomMapEventHandler: map",didReceiveTapOnFeature.position.description)
+    }
+    
     
     func addHeatMap(){
         
@@ -100,9 +116,10 @@ class CustomMapEventHandler: MapEventsHandler {
         
         let markerLayer = mapWidget.addMarkerLayer(id: "test-markerLayerId")
         //markerLayer.setMarkers([  [-122.38749686323516, 37.77017375750313] , [-122.38711522299518, 37.770216437671664]])
-        markerLayer.setMarkers([["coordinates": [-122.38711522299518, 37.770216437671664], "name": "Marker 1" ],["coordinates": [-122.38749686323516, 37.77017375750313], "name": "Marker 2" ]])
+        markerLayer.setMarkers([["coordinates": [-122.38711522299518, 37.770216437671664], "name": "Marker 1" ,"lvl":1],["coordinates": [-122.38749686323516, 37.77017375750313], "name": "Marker 2","lvl":1 ]])
+        
     
-        //markerLayer.setIcon(url: "https://wf.ciscospaces.io/wf-api/static/assets/icon.png", imageOptions: [ "pixelRatio": 2, "sdf": true ])
+      //  markerLayer.setIcon(url: "https://wf.ciscospaces.io/wf-api/static/assets/icon.png", imageOptions: [ "pixelRatio": 2, "sdf": true ])
 
         markerLayer.setPaint(["text-color": "#000000"])
         markerLayer.setLayout(["icon-text-fit": "none"])

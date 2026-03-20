@@ -34,6 +34,7 @@ class BuildingsViewController: UITableViewController {
         
         let building = buildings[indexPath.row]
         let params = SpacesWayFindingParams(building: building)
+        params.loggerLevel = LoggerLevel.all
         presentWidget(buildingParams: params)
     }
 }
@@ -41,9 +42,9 @@ class BuildingsViewController: UITableViewController {
 extension BuildingsViewController {
     
     func presentWidget(buildingParams: SpacesWayFindingParams) {
-        
         let widget = WidgetViewController(buildingParams: buildingParams)
         widget.modalPresentationStyle = .fullScreen
         navigationController?.present(widget, animated: true)
+        
     }
 }

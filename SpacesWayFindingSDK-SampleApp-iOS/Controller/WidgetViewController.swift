@@ -30,7 +30,10 @@ class WidgetViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+     
+    func getPois() -> [PoI]?{
+        return self.wayfindingHelper.spacesWayFinding.getPoIs()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -43,14 +46,11 @@ class WidgetViewController: UIViewController {
                 print(error)
                 return
             }
-            
            
             self?.spinner.stopAnimating()
             self?.presentMapWidget(mapWidget: mapWidget)
-            print(self?.wayfindingHelper.spacesWayFinding.getPoIs())
-            if let poi = self?.wayfindingHelper.spacesWayFinding.getPoIs().first {
-               // print(poi) // Will print your custom content
-            }
+            //print(self?.wayfindingHelper.spacesWayFinding.getPoIs())
+             
             print(self?.wayfindingHelper.spacesWayFinding.getFloors())
             print(self?.wayfindingHelper.spacesWayFinding.getFloor(level: 1))
             //print(self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997"))
@@ -59,28 +59,42 @@ class WidgetViewController: UIViewController {
             if let floor = self?.wayfindingHelper.spacesWayFinding.getFloor(level: 3) {
                 print(self?.wayfindingHelper.spacesWayFinding.getPoIs(floorId: floor.extraData[ "levelExternalIdentifier"] as? String ?? "fasfd"))
 
-                mapWidget.showFloor(floor: floor){error in
+               /** mapWidget.showFloor(floor: floor){error in
                     print("32412erfdserror")
                     print(error)
-                }
+                }*/
             }
+ 
+                if let building = self?.wayfindingHelper.spacesWayFinding.getBuildingById(id:self?.buildingParams.building.id ?? "") {
+                    print("buildingafrewrfcasdzcx")
+                    print(building.name)
+                   /** mapWidget.showBuidling(building: building){error in
+                        print("32412erfdserror")
+                        print(error)
+                    }*/
+                }
             
-            var poi=self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997")
+            
+            //var poi=self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997")
 
            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                if let poi = self?.wayfindingHelper.spacesWayFinding.getPoIByExternalId(externalId: "44dcc43e-b682-4fff-b8af-999b35f81997") {
+           /** DispatchQueue.main.asyncAfter(deadline: .now() + 15.0) {
+                if let poi = self?.wayfindingHelper.spacesWayFinding.getPoIs() {
                     print("POI :")
                     print(poi)
-                    mapWidget.showPoI(poi: poi) { error in
+                    /**  mapWidget.showPoI(poi: poi) { error in
                         print("error: POI print(error)")
                         print(error)
                     }
-                    
+                    */
                 } else {
                     // Handle the case where the PoI was not found
                     print("PoI not found for the given ID.")
                 }
+            }
+            */
+            widget?.highlightPoIByExternalId(externalId: "15-502"){ errror in
+                
             }
             
            
@@ -89,9 +103,6 @@ class WidgetViewController: UIViewController {
         
         
 
-       /** mapWidget.showPoI(poi: wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997")!){error in
-            print(error)
-        }*/
    }
         
     
