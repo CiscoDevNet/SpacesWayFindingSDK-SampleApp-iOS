@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSMotionUsageDescription</key>
+    <string>Motion data required to enhance wayfinding experience across multiple levels</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Camera access is required for scanning QR codes.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Turn-by-turn navigation and location-based notifications require location services to be enabled</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Turn-by-turn navigation and location-based notifications require location services to be enabled</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Turn-by-turn navigation and location-based notifications require location services to be enabled</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Bluetooth permission is required to remind you to turn your Bluetooth on</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
