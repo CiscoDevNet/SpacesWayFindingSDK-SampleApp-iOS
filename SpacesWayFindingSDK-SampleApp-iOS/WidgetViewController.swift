@@ -52,9 +52,9 @@ class WidgetViewController: UIViewController {
                // print(poi) // Will print your custom content
             }
             print(self?.wayfindingHelper.spacesWayFinding.getFloors())
-            print(self?.wayfindingHelper.spacesWayFinding.getFloor(level: 1))
-            //print(self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997"))
-            //print(self?.wayfindingHelper.spacesWayFinding.getPoIByExternalId(externalId: "1~102A"))
+            print(self?.wayfindingHelper.spacesWayFinding.getFloor(level: <level-index>))
+            //print(self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "<value-eid>"))
+            //print(self?.wayfindingHelper.spacesWayFinding.getPoIByExternalId(externalId: "<value-extra.id>"))
 
             if let floor = self?.wayfindingHelper.spacesWayFinding.getFloor(level: 3) {
                 print(self?.wayfindingHelper.spacesWayFinding.getPoIs(floorId: floor.extraData[ "levelExternalIdentifier"] as? String ?? "fasfd"))
@@ -65,11 +65,13 @@ class WidgetViewController: UIViewController {
                 }
             }
             
-            var poi=self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997")
+            var poi=self?.wayfindingHelper.spacesWayFinding.getPoIById(id: "<value-eid>")
+
+            var poiByFid=self?.wayfindingHelper.spacesWayFinding.getPoIByFid(id: "<value-fid>")
 
            
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                if let poi = self?.wayfindingHelper.spacesWayFinding.getPoIByExternalId(externalId: "44dcc43e-b682-4fff-b8af-999b35f81997") {
+                if let poi = self?.wayfindingHelper.spacesWayFinding.getPoIByExternalId(externalId:  "<value-extra.id>") {
                     print("POI :")
                     print(poi)
                     mapWidget.showPoI(poi: poi) { error in
@@ -88,10 +90,6 @@ class WidgetViewController: UIViewController {
         }
         
         
-
-       /** mapWidget.showPoI(poi: wayfindingHelper.spacesWayFinding.getPoIById(id: "44dcc43e-b682-4fff-b8af-999b35f81997")!){error in
-            print(error)
-        }*/
    }
         
     
