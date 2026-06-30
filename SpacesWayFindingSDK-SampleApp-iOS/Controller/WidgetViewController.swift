@@ -93,9 +93,6 @@ class WidgetViewController: UIViewController {
                 }
             }
             */
-            widget?.highlightPoIByExternalId(externalId: "15-502"){ errror in
-                
-            }
             
            
             
