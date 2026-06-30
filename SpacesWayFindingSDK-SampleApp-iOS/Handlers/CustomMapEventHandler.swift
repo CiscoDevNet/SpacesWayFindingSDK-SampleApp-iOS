@@ -69,7 +69,7 @@ class CustomMapEventHandler: MapEventsHandler {
                     "properties": [
                         "type": "work-space",
                         "fid": "3",
-                        "name": "heatMapa",
+                        "name": "sample-heatmap",
                         "lvl": 2
                     ],
                     "geometry": [
