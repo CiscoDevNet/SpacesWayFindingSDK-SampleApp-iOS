@@ -51,36 +51,31 @@ class CustomMapEventHandler: MapEventsHandler {
         let geoJSON: [String: Any] = [
             "type": "FeatureCollection",
             "features": [
-                    [
-                        "type": "Feature",
-                        "properties": [
-                            "type": "work-space",
-                            "fid": "2",
-                            "name": "heatMap"
-                        ],
-                        "geometry": [
-                             "type": "Polygon",
-                              "coordinates": [
-                                        [
-                                             [
-                                                -86.5970883661679,
-                                                 36.168744183595436
-                                              ],
-                                              [
-                                                -86.59718943953625,
-                                                   36.168804768473834
-                                              ],
-                                              [
-                                                -86.59721967735979,
-                                                   36.168739546712104
-                                              ],
-                                              [
-                                                  -86.5971120088282,
-                                                   36.1688297194149
-                                              ]
-                                          ]
-                                      ]
-                         ]
+                [
+                    "type": "Feature",
+                    "properties": [
+                        "type": "work-space",
+                        "fid": "2",
+                        "name": "heatMap",
+                        "lvl": 1
+                    ],
+                    "geometry": [
+                        "type": "Point",
+                        "coordinates": [-122.38711522299518, 37.770216437671664]
+                    ]
+                ],
+                [
+                    "type": "Feature",
+                    "properties": [
+                        "type": "work-space",
+                        "fid": "3",
+                        "name": "heatMapa",
+                        "lvl": 2
+                    ],
+                    "geometry": [
+                        "type": "Point",
+                        "coordinates": [-122.38728110012187, 37.7703786952669]
+                    ]
                 ]
             ]
         ]
@@ -116,7 +111,7 @@ class CustomMapEventHandler: MapEventsHandler {
         
         let markerLayer = mapWidget.addMarkerLayer(id: "test-markerLayerId")
         //markerLayer.setMarkers([  [-122.38749686323516, 37.77017375750313] , [-122.38711522299518, 37.770216437671664]])
-        markerLayer.setMarkers([["coordinates": [-122.38711522299518, 37.770216437671664], "name": "Marker 1" ,"lvl":1],["coordinates": [-122.38749686323516, 37.77017375750313], "name": "Marker 2","lvl":1 ]])
+        markerLayer.setMarkers([["coordinates": [-122.38711522299518, 37.770216437671664], "name": "Marker 1" ,"lvl":1],["coordinates": [-122.38749686323516, 37.77017375750313], "name": "Marker 2","lvl":2 ]])
         
     
       //  markerLayer.setIcon(url: "https://wf.ciscospaces.io/wf-api/static/assets/icon.png", imageOptions: [ "pixelRatio": 2, "sdf": true ])

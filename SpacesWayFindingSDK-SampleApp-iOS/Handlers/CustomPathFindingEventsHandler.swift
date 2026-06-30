@@ -8,22 +8,19 @@ import SpacesWayFindingApp
 
 class CustomPathFindingEventsHandler: PathFindingEventsHandler {
     
-    /// This function is called when the close button is tapped after path finding has finished
+    /// This function is called when the close button is tapped after way finding has finished
     
     override func wayfindingDidTapClose(_ destination: Feature) {
         
-        print("CustomPathFindingEventsHandler: pathFindingDidTapClose")
-        
-       // mapWidget.pathFindingEventsHandler?.mapWidget.navigationController?.visibleViewController.
+        print("CustomPathFindingEventsHandler: wayfindingDidTapClose")
 
     }
     
-    /// This function is called when the cancel button is tapped while path finding is active.
+    /// This function is called when the cancel button is tapped while way finding is active.
     
     override func wayfindingDidTapCancel(_ destination: Feature) {
         
-        print("CustomPathFindingEventsHandler: pathFindingDidTapCancel")
-      //  pathFinding.dismiss(animated: true)
+        print("CustomPathFindingEventsHandler: wayfindingDidTapCancel")
 
         
     }
