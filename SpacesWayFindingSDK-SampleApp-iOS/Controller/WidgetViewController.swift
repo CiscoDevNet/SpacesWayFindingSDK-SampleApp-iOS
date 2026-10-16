@@ -65,7 +65,7 @@ class WidgetViewController: UIViewController {
                 }*/
             }
  
-                if let building = self?.wayfindingHelper.spacesWayFinding.getBuildingById(id:self?.buildingParams.building.id ?? "") {
+                if let building = self?.wayfindingHelper.spacesWayFinding.getBuildingById(id:self?.buildingParams.building?.id ?? "") {
                     print("buildingafrewrfcasdzcx")
                     print(building.name)
                    /** mapWidget.showBuidling(building: building){error in
