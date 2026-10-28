@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mapbox
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //DataResetter.resetAppData()
         // Override point for customization after application launch.
+        
+        let storage = MGLOfflineStorage.shared
+        
+        NotificationCenter.default.removeObserver(
+            storage,
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            storage,
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
+        
         return true
     }
 
